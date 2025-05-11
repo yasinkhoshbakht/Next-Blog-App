@@ -1,0 +1,97 @@
+[
+  {
+    "_id": "66b14ddf7c007974fef9d25a",
+    "user": "66a0e4b88dfc01025fc0550d",
+    "post": "66a0fe9bd9fd48041dc0de2c",
+    "content": {
+      "text": "first comment\r\n"
+    },
+    "status": 2,
+    "openToComment": true,
+    "answers": [],
+    "createdAt": "2024-08-05T22:10:39.538Z",
+    "updatedAt": "2024-08-05T22:56:31.198Z",
+    "__v": 0
+  },
+  {
+    "_id": "66b14dec7c007974fef9d263",
+    "user": "66a0e4b88dfc01025fc0550d",
+    "post": "66a0fe9bd9fd48041dc0de2c",
+    "content": {
+      "text": "second comment base"
+    },
+    "status": 2,
+    "openToComment": true,
+    "answers": [
+      {
+        "user": "66a0e4b88dfc01025fc0550d",
+        "post": "66a0fe9bd9fd48041dc0de2c",
+        "content": {
+          "text": "third comment reply"
+        },
+        "status": 2,
+        "openToComment": false,
+        "_id": "66b14e177c007974fef9d26d",
+        "createdAt": "2024-08-05T22:11:35.921Z",
+        "updatedAt": "2024-08-05T22:11:35.921Z"
+      }
+    ],
+    "createdAt": "2024-08-05T22:10:52.757Z",
+    "updatedAt": "2024-08-06T00:57:18.597Z",
+    "__v": 0
+  },
+  {
+    "_id": "66b719c18517385605105368",
+    "user": "66a0e4b88dfc01025fc0550d",
+    "post": "66b70ee08517385605104ffa",
+    "content": {
+      "text": "کار فریلنسری دستمزدش چطوره؟\r\n"
+    },
+    "status": 2,
+    "openToComment": true,
+    "answers": [
+      {
+        "user": "66a0e4b88dfc01025fc0550d",
+        "post": "66b70ee08517385605104ffa",
+        "content": {
+          "text": "میانگین ساعتی ۱۵۰-۲۰۰ هزارتومان"
+        },
+        "status": 2,
+        "openToComment": false,
+        "_id": "66b719d78517385605105372",
+        "createdAt": "2024-08-10T07:42:15.465Z",
+        "updatedAt": "2024-08-10T07:42:15.465Z"
+      }
+    ],
+    "createdAt": "2024-08-10T07:41:53.353Z",
+    "updatedAt": "2024-08-10T07:42:15.465Z",
+    "__v": 0
+  },
+  {
+    "_id": "66b71c2c85173856051053fc",
+    "user": "66a0e4b88dfc01025fc0550d",
+    "post": "66b708288517385605104f33",
+    "content": {
+      "text": "تاریخ خوبه یا جغرافیا ؟"
+    },
+    "status": 2,
+    "openToComment": true,
+    "answers": [
+      {
+        "user": "66a0e4b88dfc01025fc0550d",
+        "post": "66b708288517385605104f33",
+        "content": {
+          "text": "قطعا ریاضیات!"
+        },
+        "status": 2,
+        "openToComment": false,
+        "_id": "66b71c398517385605105406",
+        "createdAt": "2024-08-10T07:52:25.734Z",
+        "updatedAt": "2024-08-10T07:52:25.734Z"
+      }
+    ],
+    "createdAt": "2024-08-10T07:52:12.115Z",
+    "updatedAt": "2024-08-10T07:52:25.734Z",
+    "__v": 0
+  }
+]

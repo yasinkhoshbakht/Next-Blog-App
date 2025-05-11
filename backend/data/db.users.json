@@ -1,0 +1,48 @@
+[
+  {
+    "_id": "66a0e4b88dfc01025fc0550d",
+    "name": "صاحب محمدی",
+    "email": "user@test.com",
+    "password": "$2a$10$nJQy0s3O2crY3H6U7gVA.eD/E3e.LuylyXjXDeW8.26USnCiTb5ue",
+    "bookmarkedPosts": [
+      "66a0fe9bd9fd48041dc0de2c",
+      "66b70d2d8517385605104f72",
+      "66b70e6b8517385605104fdd",
+      "66b70ee08517385605104ffa"
+    ],
+    "likedPosts": [
+      "66a0fe9bd9fd48041dc0de2c",
+      "66b112263084e9d1b3a476b9",
+      "66b70de68517385605104fc1",
+      "66b708288517385605104f33",
+      "66b70ee08517385605104ffa"
+    ],
+    "createdAt": "2024-07-24T11:25:44.446Z",
+    "updatedAt": "2024-08-10T07:57:13.689Z",
+    "__v": 0,
+    "avatar": "uploads/avatar/2024/6/28/1722159905989-266255497.jpeg"
+  },
+  {
+    "_id": "66a4252efccb30870d1e251f",
+    "name": "فلانی",
+    "email": "user@test1.com",
+    "password": "$2a$10$vL1wVJJ0cPtpgn9Rlfa83eqEBgvr6V72EzON5eW0PyQmWjSg83MtC",
+    "bookmarkedPosts": [],
+    "likedPosts": [],
+    "createdAt": "2024-07-26T22:37:34.906Z",
+    "updatedAt": "2024-07-26T22:37:34.906Z",
+    "__v": 0
+  },
+  {
+    "_id": "66b675228517385605104e3d",
+    "name": "کاربر تستی",
+    "email": "user@test2.com",
+    "password": "$2a$10$xxUNgxo3O6rdxYNIlN10t.f3R1.CCZO7GvqlnN7MM2lhN6/.T5xqS",
+    "bookmarkedPosts": [],
+    "likedPosts": [],
+    "avatar": "uploads/avatar/2024/7/10/1723270857002-503863264.jpeg",
+    "createdAt": "2024-08-09T19:59:30.991Z",
+    "updatedAt": "2024-08-10T06:20:57.006Z",
+    "__v": 0
+  }
+]
