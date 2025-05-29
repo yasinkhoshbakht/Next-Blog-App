@@ -1,6 +1,6 @@
 "use client";
 
-import { useAuth } from "@/context/AuthContext";
+// import { useAuth } from "@/context/AuthContext";
 import NavLink from "./NavLink";
 
 const navLinks = [
@@ -17,7 +17,7 @@ const navLinks = [
 ];
 
 function Header() {
-  const { user, isLoading } = useAuth();
+  // const { user, isLoading } = useAuth();
 
   return (
     <header
