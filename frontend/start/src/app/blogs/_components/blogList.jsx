@@ -1,23 +1,60 @@
+import Link from "next/link";
 import React from "react";
+import CoverImage from "./coverImage";
 
 async function BlogList() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/post/list`);
-  await new Promise((resolve) => setTimeout(resolve, 2000));
-
   const {
     data: { posts },
   } = await res.json();
 
-  return (
-    <div className="space-y-6">
+  if (!posts.length) return null;
+
+  return posts.length === 0 ? null : (
+    <div className="grid grid-cols-12 gap-4">
       {posts.map((post) => (
         <div
-          key={post.id}
-          className="p-5 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 cursor-pointer"
+          key={post._id}
+          className="col-span-12 sm:col-span-6 lg:col-span-4 border border-secondary-100 p-4"
         >
-          <h2 className="text-xl font-semibold text-gray-800 mb-2">
-            {post.title}
-          </h2>
+          <CoverImage post={post} />
+          <div className="post-post">
+            <Link href={`/blogs/${post.slug}`}>
+              <h2 className="text-lg font-bold text-secondary-700">
+                {post.title}
+              </h2>
+            </Link>
+            <div className="flex items-center justify-between mt-4">
+              <div className="flex items-center gap-x-2">
+                <img
+                  src={post.author.avatarUrl || "/images/avatar.png"}
+                  width={24}
+                  height={24}
+                  className="rounded-full ring-1 ring-secondary-100 ml-2"
+                  alt={post.author.name}
+                />
+                <span className="text-sm text-slate-500">
+                  {post.author.name}
+                </span>
+              </div>
+              <div className="flex items-center text-[10px] text-secondary-500 gap-x-1">
+                <svg
+                  className="w-4 h-4 stroke-secondary-500"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 8v4l3 2m6-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+                <span className="text-xs leading-3">{post.readingTime}</span>
+              </div>
+            </div>
+          </div>
         </div>
       ))}
     </div>
