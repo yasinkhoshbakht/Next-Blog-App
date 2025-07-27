@@ -1,9 +1,18 @@
 import React from "react";
 import CoverImage from "../_components/coverImage";
+import { getPosts } from "@/services/postServices";
+
+export const dynamicParams = false;
+
+export async function generateStaticParams() {
+  const { posts } = await getPosts();
+  return posts.map((post) => ({ PostSlug: post.slug }));
+}
 
 export async function generateMetadata({ params }) {
   const res = await fetch(
-    `http://localhost:5000/api/post/slug/${params.PostSlug}`
+    `http://localhost:5000/api/post/slug/${params.PostSlug}`,
+    { cache: "no-store" }
   );
   const { data } = await res.json();
   const post = data.post;
@@ -16,7 +25,8 @@ export async function generateMetadata({ params }) {
 
 export default async function PostSlug({ params }) {
   const res = await fetch(
-    `http://localhost:5000/api/post/slug/${params.PostSlug}`
+    `http://localhost:5000/api/post/slug/${params.PostSlug}`,
+    { cache: "no-store" }
   );
   const { data } = await res.json();
   const post = data.post;
