@@ -12,7 +12,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const res = await fetch(
     `http://localhost:5000/api/post/slug/${params.PostSlug}`,
-    { cache: "no-store" }
+    { next: { revalidate: 60 } }
   );
   const { data } = await res.json();
   const post = data.post;
@@ -26,7 +26,7 @@ export async function generateMetadata({ params }) {
 export default async function PostSlug({ params }) {
   const res = await fetch(
     `http://localhost:5000/api/post/slug/${params.PostSlug}`,
-    { cache: "no-store" }
+    { next: { revalidate: 60 } }
   );
   const { data } = await res.json();
   const post = data.post;
