@@ -20,7 +20,7 @@
     "query-string": "^9.1.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-hook-form": "^7.53.0",
+    "react-hook-form": "^7.62.0",
     "react-hot-toast": "^2.4.1",
     "yup": "^1.4.0"
   },
