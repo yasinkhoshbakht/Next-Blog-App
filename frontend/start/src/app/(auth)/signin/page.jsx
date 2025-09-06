@@ -6,8 +6,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Link from "next/link";
 import SpinnerMini from "@/ui/SpinnerMini";
-import { singinApi } from "@/services/authService";
-import toast from "react-hot-toast";
+import { useAuth } from "@/context/AuthContext";
 
 const schema = yup
   .object({
@@ -17,6 +16,8 @@ const schema = yup
   .required();
 
 function Signin() {
+  const { signin } = useAuth();
+
   const {
     register,
     handleSubmit,
@@ -27,13 +28,7 @@ function Signin() {
   });
 
   const onSubmit = async (values) => {
-    try {
-      const data = await singinApi(values);
-      toast.success("ورود با موفقیت انجام شد!");
-      console.log("DATA:", data);
-    } catch (err) {
-      toast.error(err?.response?.data?.message);
-    }
+    await signin(values);
   };
 
   return (

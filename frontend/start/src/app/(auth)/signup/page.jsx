@@ -5,8 +5,7 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import SpinnerMini from "@/ui/SpinnerMini";
-import { signupApi } from "@/services/authService";
-import toast from "react-hot-toast";
+import { useAuth } from "@/context/AuthContext";
 
 const schema = yup
   .object({
@@ -21,6 +20,8 @@ const schema = yup
   .required();
 
 function Signup() {
+  const { signup } = useAuth();
+
   const {
     register,
     handleSubmit,
@@ -31,13 +32,7 @@ function Signup() {
   });
 
   const onSubmit = async (values) => {
-    try {
-      const data = await signupApi(values);
-      toast.success("ثبت‌ نام با موفقیت انجام شد!");
-      console.log("DATA:", data);
-    } catch (err) {
-      toast.error(err?.response?.data?.message);
-    }
+    await signup(values);
   };
 
   return (
