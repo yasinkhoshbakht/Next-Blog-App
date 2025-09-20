@@ -2,6 +2,8 @@
 import React from "react";
 import Link from "next/link";
 import { useAuth } from "@/context/AuthContext";
+import Spinner from "@/ui/Spinner";
+import SpinnerMini from "@/ui/SpinnerMini";
 
 function Navbar() {
   const { user, isAuthenticated, loading } = useAuth();
@@ -53,7 +55,7 @@ function Navbar() {
         </ul>
         <div className="flex items-center gap-3">
           {loading ? (
-            <span className="text-gray-500">در حال بارگذاری...</span>
+            <SpinnerMini />
           ) : isAuthenticated && user ? (
             <Link
               href="/profile"
