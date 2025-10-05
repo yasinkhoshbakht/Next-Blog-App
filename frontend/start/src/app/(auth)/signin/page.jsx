@@ -7,6 +7,9 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import Link from "next/link";
 import SpinnerMini from "@/ui/SpinnerMini";
 import { useAuth } from "@/context/AuthContext";
+import { useSearchParams } from "next/navigation";
+import { useEffect } from "react";
+import { toast } from "react-hot-toast";
 
 const schema = yup
   .object({
@@ -17,6 +20,8 @@ const schema = yup
 
 function Signin() {
   const { signin } = useAuth();
+  const searchParams = useSearchParams();
+  const error = searchParams.get("error");
 
   const {
     register,
@@ -30,6 +35,18 @@ function Signin() {
   const onSubmit = async (values) => {
     await signin(values);
   };
+
+  useEffect(() => {
+    if (error === "unauthorized") {
+      toast.error("برای دسترسی باید حساب کاربری داشته باشی");
+    }
+    if (error === "sessionExpired") {
+      toast.error("داوش خیلی وقته اینجا بودی، دوباره وارد شو");
+    }
+    if (error === "serverError") {
+      toast.error("مشکلی پیش ، دلارو نگاه کن تا درستش کنیم");
+    }
+  }, [error]);
 
   return (
     <div className="max-w-md mx-auto mt-12 px-6 py-8 bg-white shadow-md rounded-2xl">

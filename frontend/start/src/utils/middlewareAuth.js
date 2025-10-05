@@ -1,20 +1,33 @@
-export async function middlewareAuth(req) {
-  const accessToken = req.cookies.get("accessToken");
-  const refreshToken = req.cookies.get("refreshToken");
+import { NextResponse } from "next/server";
 
-  const options = {
-    method: "GET",
-    credentials: "include",
-    headers: {
-      Cookie: `${accessToken?.name}=${accessToken?.value}; ${refreshToken?.name}=${refreshToken?.value}`,
-    },
-  };
+export async function validateUser(req, accessToken, refreshToken) {
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/user/profile`,
+      {
+        method: "GET",
+        credentials: "include",
+        headers: {
+          Cookie: `accessToken=${accessToken}; refreshToken=${refreshToken}`,
+        },
+      }
+    );
 
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/user/profile`,
-    options
-  );
-  const { data } = await res.json();
-  const { user } = data || {};
-  return user;
+    if (!res.ok) {
+      return NextResponse.redirect(
+        new URL("/signin?error=sessionExpired", req.url)
+      );
+    }
+
+    const { data } = await res.json();
+    if (!data?.user) {
+      return NextResponse.redirect(
+        new URL("/signin?error=unauthorized", req.url)
+      );
+    }
+
+    return NextResponse.next(); 
+  } catch (error) {
+    return NextResponse.redirect(new URL("/signin?error=serverError", req.url));
+  }
 }
