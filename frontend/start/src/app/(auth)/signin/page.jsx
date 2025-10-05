@@ -44,7 +44,7 @@ function Signin() {
       toast.error("داوش خیلی وقته اینجا بودی، دوباره وارد شو");
     }
     if (error === "serverError") {
-      toast.error("مشکلی پیش ، دلارو نگاه کن تا درستش کنیم");
+      toast.error("مشکلی پیش اومده ، دلارو نگاه کن تا درستش کنیم");
     }
   }, [error]);
 
