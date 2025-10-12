@@ -16,7 +16,7 @@ async function BlogList() {
           key={post._id}
           className="col-span-12 sm:col-span-6 lg:col-span-4 border border-secondary-100 p-4"
         >
-          <CoverImage post={post}/>
+          <CoverImage post={post} />
           <div className="post-post">
             <Link href={`/blogs/${post.slug}`}>
               <h2 className="text-lg font-bold text-secondary-700">
